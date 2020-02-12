@@ -1,0 +1,138 @@
+
+#cooked::-moz-range-track {
+  padding: 0 10px;
+  background: repeating-linear-gradient(to right, 
+    #ccc 0%, 
+    #ccc 25%, 
+    #000 25%, 
+    #000 26%, 
+    #ccc 26%, 
+    #ccc 50%,
+    #000 50%, 
+    #000 51%, 
+    #ccc 51%, 
+    #ccc 75%,
+    #000 75%, 
+    #000 76%, 
+    #ccc 76%, 
+    #ccc 100%);
+}
+
+
+#loadingDiv{
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(40vh - 50px);
+    position: relative;
+}
+
+#loading_canvas,#loading_canvas_bg{
+    width: 100px;
+    height: 100px;
+}
+
+
+#containerDiv{
+    position:   absolute;
+    left:       0px;
+    top:        20vh;
+    width:      100%;
+    height:     80vh;
+}
+
+#canvasDiv{
+    position: absolute;
+    left:     50%;
+    top:      0%;
+}
+
+#notesDiv{
+    background: #f9f0e7;
+    visibility: hidden;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    max-height: calc(80vh - 81px);
+    overflow: scroll;
+}
+
+#notesDiv button{
+    display:block;
+    width:200px;
+    margin:100px auto auto auto;
+}
+
+
+#mtm_canvas{
+    z-index: 2;
+}
+
+#mtm_canvas_bg{
+    z-index: 1;
+}
+
+#loading_canvas_bg{
+    z-index: -1;
+}
+
+canvas {
+    width:    100%;
+    height:   100%;
+    top:      0px;
+    left:     0px;
+    position: absolute;
+}
+
+.colDiv{
+    border: 1px solid black;
+}
+
+#versionInfoDiv{
+    border:1px solid black;
+    text-align: center;
+}
+
+#controlsDiv{
+    border:0px solid black;
+    background: #f9f0e7;
+    display: flex;
+    height:20vh;
+    overflow:hidden;
+}
+
+#debugButtonsDiv{
+    display:none;
+}
+
+body{
+    background: #33282c;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+p{
+    font-size: smaller;
+    margin:10px;
+}
+
+@font-face {
+    font-family: ps2p;
+    src: url(./res/PressStart2P.ttf);
+    font-weight:400;
+}
+
+
+.loadingAnimated{
+    -webkit-animation:spin 10.5s linear infinite;
+    -moz-animation:spin 10.5s linear infinite;
+    -o-animation:spin 10.5s linear infinite;
+    animation:spin 1.5s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+

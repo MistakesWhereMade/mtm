@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Man the Meat game</title>
+        <script src="./mtm.js"></script>
+        <link rel="stylesheet" href="./mtm.css">
+    </head>
+    <body>
+        <div style="font-family: ps2p; font-size:1px;">...<!--preload the font or canvas draw will fail--></div>
+        <img id="man_sprite" src="./res/man_sprite.png" style="display:none">
+        <img id="chef_sprite" src="./res/chef_sprite.png" style="display:none">
+        <img id="head_sprite" src="./res/head_sprite.png" style="display:none">
+        <img id="meat_raw" src="./res/meat_raw.png" style="display:none">
+        <img id="meat_rare" src="./res/meat_rare.png" style="display:none">
+        <img id="meat_med" src="./res/meat_med.png" style="display:none">
+        <img id="meat_well" src="./res/meat_well.png" style="display:none">
+        <img id="meat_burnt" src="./res/meat_burnt.png" style="display:none">
+        <div id="controlsDiv">
+            <div class="colDiv">
+                SkinColor: <input type=range min=1 max=4095 value=900 id="skinColorS"   onchange="setColors()"><br>
+                ShirtColor: <input type=range min=1 max=4095 value=900 id="shirtColorS" onchange="setColors()"><br>
+                PantsColor: <input type=range min=1 max=4095 value=900 id="pantsColorS" onchange="setColors()"><br>
+                Music Volume: <input type=range min=0 max=100 value=50 id="volumeS"  onchange="setVolume()"><br>
+                <button id="muteBtn"  onclick="toggleMute()"    >mute</button>
+            </div>
+            <div class="colDiv">
+                Cooked: <input type=range min=1 max=1000 value=0 id="cooked"><br>
+                FlameCount: <input type=range min=0 max=1000 value=500 id="flameCountK"><br>
+                FlameProp: <input type=range min=1 max=1000 value=900 id="flamePropK"><br>
+                Sound Volume: <input type=range min=0 max=100 value=75 id="svolumeS"  onchange="setVolume()"><br>
+            </div>
+            <div id="debugButtonsDiv" class="colDiv">
+                <button id="introBtn" onclick="startIntro()"    >intro</button>
+                <button id="stageBtn" onclick="startStage()"    >stage intro</button>
+                <button id="enterBtn" onclick="startCustEnter()">enter</button>
+                <button id="exitBtn"  onclick="startCustExit()" >exit</button>
+                <button id="cookBtn"  onclick="startCook()"     >cook</button>
+                <button id="serveBtn" onclick="startServe()"    >serve</button>
+                <button id="eatBtn"   onclick="startEat()"      >eat</button>
+                <button id="niceBtn"  onclick="startNice()"     >nice</button>
+                <button id="delBtn"   onclick="startDel()"      >delicious</button>
+                <button id="disuBtn"  onclick="startDis()"      >disgusting</button>
+                <button id="scoreBtn" onclick="startScore()"    >score</button>
+            </div>
+            <div id="versionInfoDiv">
+                <b>Man the Meat</b><br>
+                Fan made homage<br>
+                to the No More Heroes 2 mini game.<br>
+                version: alpha 0.1b
+                <br>
+                <button id="notesBtn" onclick="showNotes()">notes/credits</button>
+            </div>
+        </div>
+        <div id="containerDiv">
+            <div id="loadingDiv">
+                <canvas id="loading_canvas"></canvas>
+                <canvas id="loading_canvas_bg" class="loadingAnimated"></canvas>
+            </div>
+            <div id="canvasDiv">
+                <canvas id="loading_canvas_bg"></canvas>
+                <canvas id="mtm_canvas_bg"></canvas>
+                <canvas id="mtm_canvas"></canvas>
+            </div>
+        </div>
+        <div id="notesDiv">
+            <p>
+                Best effort of a hopeless wannabe game dev.<br>
+                <br>
+                <br>
+                Man The Meat still needs more work.<br>
+                The music is nice, but doesn't match the game very well.<br>
+                (looking for suggestions)<br>
+                <br>
+                Voice sounds are lacking.<br>
+                <br>
+                Missing background modifications graphics for each level, smoke...<br>
+                <br>
+                Need more balancing of cook speed, and delicious/nice/disgusting range.<br>
+                <br>
+                <br>
+                <br>
+            </p>
+            Licenses:
+            <p>
+                <a href="https://alphabrutal.bandcamp.com/track/blue-cats-2">Blue Cats</a>
+                 by 
+                <a href="https://alphabrutal.bandcamp.com">Alpha Brutal</a>
+                 is licensed under 
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+            </p>
+            <p>
+                <a href="https://alphabrutal.bandcamp.com/track/epic-song">EPIC SONG</a>
+                 by 
+                <a href="https://alphabrutal.bandcamp.com">Alpha Brutal</a>
+                 is licensed under 
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+            </p>
+            <p>
+                <a href="https://fonts.google.com/specimen/Press+Start+2P">Press Start</a>
+                <a href="mailto:cody@zone38.net">Copyright (c) 2011, Cody "CodeMan38" Boisclair (cody@zone38.net)</a>
+                <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web">SIL Open Font License 1.1</a>
+            </p>
+            <p>All art is original made to look like the No More Heroes 2 mini game.</p>
+            <button id="backBtn" onclick="showGame()">back to the game.</button>
+        </div>
+    </body>
+</html>
